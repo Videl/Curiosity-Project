@@ -1,6 +1,7 @@
 package org.fslhome.curiosity;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +30,9 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+        	Intent myIntent = new Intent(MainActivity.this, SettingsActivity.class);
+        	//myIntent.putExtra("key", value); //Optional parameters
+        	MainActivity.this.startActivity(myIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
