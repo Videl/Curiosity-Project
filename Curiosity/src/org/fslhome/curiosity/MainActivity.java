@@ -15,7 +15,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         
         // Get references to all places (in buttons)
-        
+        // http://stackoverflow.com/questions/5141549/get-reference-to-views-in-my-android-activity
         // Add click listener to each of them
     }
 
