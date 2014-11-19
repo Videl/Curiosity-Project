@@ -1302,6 +1302,7 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
         public static final int main_image=0x7f020058;
+        public static final int sub_image=0x7f020059;
     }
     public static final class id {
         public static final int action_bar=0x7f05002d;
@@ -1322,9 +1323,9 @@ containing a value of this type.
         public static final int always=0x7f05001d;
         public static final int beginning=0x7f050023;
         public static final int bottom=0x7f050005;
-        public static final int button1=0x7f050050;
-        public static final int button2=0x7f050051;
-        public static final int button3=0x7f050052;
+        public static final int button_left=0x7f050050;
+        public static final int button_middle=0x7f050051;
+        public static final int button_right=0x7f050053;
         public static final int center=0x7f05000c;
         public static final int center_horizontal=0x7f05000a;
         public static final int center_vertical=0x7f050008;
@@ -1381,7 +1382,7 @@ containing a value of this type.
         public static final int tabMode=0x7f050014;
         public static final int tableLayout1=0x7f05004e;
         public static final int tableRow1=0x7f05004f;
-        public static final int tableRow2=0x7f050053;
+        public static final int tableRow2=0x7f050052;
         public static final int tableRow3=0x7f050054;
         public static final int title=0x7f05003c;
         public static final int top=0x7f050004;

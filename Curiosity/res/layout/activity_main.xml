@@ -31,31 +31,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
 	    	<Button
-		        android:id="@+id/button1"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
+		        android:id="@+id/button_left"
 		        android:layout_marginBottom="51dp"
-		        android:text="Button 1" />
+		        android:drawableBottom="@drawable/sub_image"
+		        android:text="Dublin" />
 	    	
 	    	<Button
-		        android:id="@+id/button2"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
+		        android:id="@+id/button_middle"
 		        android:layout_marginBottom="51dp"
-		        android:text="Button 2" />
-	    	
-	    	<Button
-		        android:id="@+id/button3"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_marginBottom="51dp"
-		        android:text="Button 3" />
+		        android:drawableBottom="@drawable/sub_image"
+		        android:text="Maynooth" />
         </TableRow>
 
         <TableRow
             android:id="@+id/tableRow2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+	    	
+	    	<Button
+		        android:id="@+id/button_right"
+		        android:layout_marginBottom="51dp"
+		        android:drawableBottom="@drawable/sub_image"
+		        android:text="Glendalough" />
         </TableRow>
 
         <TableRow
