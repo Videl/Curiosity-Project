@@ -61,5 +61,7 @@
             android:layout_height="wrap_content" >
         </TableRow>
     </TableLayout>
+    
+    <!-- http://stackoverflow.com/questions/12492064/android-add-image-to-button -->
 
 </RelativeLayout>

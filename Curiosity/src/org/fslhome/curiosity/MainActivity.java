@@ -13,6 +13,10 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Get references to all places (in buttons)
+        
+        // Add click listener to each of them
     }
 
 
