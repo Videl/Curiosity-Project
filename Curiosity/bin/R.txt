@@ -340,6 +340,7 @@ int string abc_shareactionprovider_share_with_application 0x7f0a000b
 int string about_us 0x7f0a0010
 int string action_settings 0x7f0a000f
 int string app_name 0x7f0a000d
+int string app_title 0x7f0a0015
 int string change_language 0x7f0a0013
 int string discovery 0x7f0a0011
 int string exit 0x7f0a0012

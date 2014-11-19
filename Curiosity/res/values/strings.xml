@@ -9,5 +9,6 @@
     <string name="exit">Quit</string>
     <string name="change_language">Change language</string>
     <string name="menu">Menu</string>
+    <string name="app_title">Curiosity</string>
 
 </resources>
