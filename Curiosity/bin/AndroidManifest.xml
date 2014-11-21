@@ -22,7 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:label="@string/action_settings" android:name=".SettingsActivity"/>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/action_settings" />
+        <activity
+            android:name=".CuriositiesActivity"
+            android:label="@string/title_activity_curiosities" >
+        </activity>
     </application>
 
 </manifest>
