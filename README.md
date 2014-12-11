@@ -7,3 +7,5 @@ Curiosity
 * How are we going to store data?: https://developer.android.com/guide/topics/data/data-storage.html#db
 * How OpenStreetMap can be included? Google Maps?
 * Use a little sound at the beginning
+* User defined styles and themes
+* A Splash screen with including a short sound component (Using Sound pool or Media player)
