@@ -15,9 +15,11 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.support.v4.app.NavUtils;
+import android.view.Window;
 
 
 import java.util.List;
@@ -45,18 +47,6 @@ public class SettingsActivity extends PreferenceActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setupActionBar();
-    }
-
-    /**
-     * Set up the {@link android.app.ActionBar}, if the API is available.
-     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    private void setupActionBar() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            // Show the Up button in the action bar.
-            //getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override
@@ -116,7 +106,7 @@ public class SettingsActivity extends PreferenceActivity {
         // Bind the summaries of EditText/List/Dialog/Ringtone preferences to
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
-        bindPreferenceSummaryToValue(findPreference("example_text"));
+        bindPreferenceSummaryToValue(findPreference("general_language_dialog"));
         bindPreferenceSummaryToValue(findPreference("example_list"));
         bindPreferenceSummaryToValue(findPreference("notifications_new_message_ringtone"));
         bindPreferenceSummaryToValue(findPreference("sync_frequency"));
@@ -251,7 +241,7 @@ public class SettingsActivity extends PreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference("example_text"));
+            bindPreferenceSummaryToValue(findPreference("general_language_dialog"));
             bindPreferenceSummaryToValue(findPreference("example_list"));
         }
     }

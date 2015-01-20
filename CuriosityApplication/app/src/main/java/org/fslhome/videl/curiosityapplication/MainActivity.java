@@ -59,6 +59,7 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             Intent myIntent = new Intent(this, SettingsActivity.class);
             startActivity(myIntent);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
