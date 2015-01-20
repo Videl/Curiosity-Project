@@ -33,16 +33,16 @@
 
             <Button
                 android:id="@+id/button_left"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Dublin" />
 
             <Button
                 android:id="@+id/button_middle"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Maynooth" />
@@ -58,16 +58,16 @@
 
             <Button
                 android:id="@+id/button_right"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Glendalough" />
 
             <Button
                 android:id="@+id/button_right_two"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Montpellier" />
@@ -81,16 +81,16 @@
 
             <Button
                 android:id="@+id/button_right3"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Paris" />
 
             <Button
                 android:id="@+id/button_right_two4"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Maues" />
@@ -104,16 +104,16 @@
 
             <Button
                 android:id="@+id/button_right5"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Sao Paulo" />
 
             <Button
                 android:id="@+id/button_right_two6"
-                android:layout_width="125dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/card_home_width"
+                android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
                 android:text="Vinhedo" />
