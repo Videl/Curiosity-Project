@@ -4,5 +4,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Splash" parent="android:Theme">
+        <item name="android:windowBackground">@drawable/world_map_bw_arrows</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
 </resources>
