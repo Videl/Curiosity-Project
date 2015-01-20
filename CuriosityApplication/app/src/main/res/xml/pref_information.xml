@@ -1,0 +1,22 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
+        android:title="@string/pref_information_about_us"
+        android:dialogTitle="@string/pref_information_about_us"
+        android:dialogMessage="@string/pref_information_about_us_text"
+        />
+
+    <Preference android:title="@string/pref_information_licences">
+
+    </Preference>
+
+
+    <!-- This preference simply launches an intent when selected. Use this UI sparingly, per
+         design guidelines. -->
+    <!--
+    <Preference android:title="@string/pref_title_system_sync_settings">
+        <intent android:action="android.settings.SYNC_SETTINGS" />
+    </Preference>
+    -->
+
+</PreferenceScreen>

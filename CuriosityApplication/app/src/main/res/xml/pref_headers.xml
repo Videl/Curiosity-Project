@@ -12,6 +12,6 @@
 
     <header
         android:fragment="org.fslhome.videl.curiosityapplication.SettingsActivity$DataSyncPreferenceFragment"
-        android:title="@string/pref_header_data_sync" />
+        android:title="@string/pref_header_information" />
 
 </preference-headers>
