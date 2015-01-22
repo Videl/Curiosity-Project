@@ -1,8 +1,10 @@
 package org.fslhome.videl.curiosityapplication;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -22,10 +24,28 @@ public class SplashActivity extends Activity {
 
         boolean splashSettingValue = prefs.getBoolean("general_splash_checkbox", false);
 
-        //"general_splash_checkbox", "false");
-        //findPreference();
+        boolean bootSoundValue = prefs.getBoolean("general_boot_sound_checkbox", false);
 
         Log.i("Videl", "Splash preference value: " + splashSettingValue);
+
+        if(bootSoundValue)
+        {
+            startActivity(nextActivity);
+        }
+        else
+        {
+            final Context forThread = this;
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    MediaPlayer mediaPlayer = MediaPlayer.create(forThread, R.raw.the_tardis);
+
+                    mediaPlayer.start();
+                }
+            }).start();
+        }
+
 
 
         if(splashSettingValue)
