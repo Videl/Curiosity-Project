@@ -8,5 +8,6 @@
     <string name="home">Home</string>
     <string name="title_activity_blank">BlankActivity</string>
     <string name="title_activity_splash">Splash Activity for launch</string>
+    <string name="temp">Temporary field</string>
 
 </resources>

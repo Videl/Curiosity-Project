@@ -13,7 +13,7 @@
     <string name="pref_general_splash_summary">The splash image is the image that immediately appears after launching.</string>
 
     <string name="pref_general_boot_sound">Remove boot music</string>
-    <string name="pref_general_boot_sound_summary">Remove the image that plays with the splash image.</string>
+    <string name="pref_general_boot_sound_summary">Remove the T.A.R.D.I.S. sound that plays after launching.</string>
 
     <string-array name="pref_general_language_dialog_list_titles">
         <item>English</item>
