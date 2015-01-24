@@ -4,4 +4,10 @@
     tools:context="org.fslhome.videl.curiosityapplication.BlankActivity">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/action_drop_db" android:title="Empty database"
+        android:orderInCategory="1000" />
+
+    <item android:id="@+id/action_clean_db" android:title="Clean database"
+        android:orderInCategory="2000" />
 </menu>

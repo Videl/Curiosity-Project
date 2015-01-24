@@ -10,6 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import org.fslhome.videl.curiosityapplication.model.CuriosityDBAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +63,23 @@ public class MainActivity extends ActionBarActivity {
             Intent myIntent = new Intent(this, SettingsActivity.class);
             startActivity(myIntent);
             return true;
+        } else if (id == R.id.action_drop_db) {
+            CuriosityDBAdapter dbAdapter = new CuriosityDBAdapter(this);
+            dbAdapter.open_write().completeDatabaseErase();
+            dbAdapter.close();
+
+            Toast.makeText(this, "Erased DB", Toast.LENGTH_SHORT).show();
+
+            return true;
+        } else if (id == R.id.action_clean_db) {
+            CuriosityDBAdapter dbAdapter = new CuriosityDBAdapter(this);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "The Roost", "Un super bar", 52.5170365, 13.3888599);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Gare", "Ahah", 52.5213, 13.4109);
+            dbAdapter.close();
+
+            Toast.makeText(this, "Added default data.", Toast.LENGTH_SHORT).show();
+
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -86,6 +106,18 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return list_buttons;
+    }
+
+    public void cleanDB() {
+        Toast tt = new Toast(this);
+        tt.setText("Restored a clean DB.");
+        tt.show();
+    }
+
+    public void dropDB() {
+        Toast tt = new Toast(this);
+        tt.setText("Erased DB.");
+        tt.show();
     }
 
 }

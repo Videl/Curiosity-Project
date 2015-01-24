@@ -1,5 +1,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--
+    <PreferenceScreen
+        android:key="second_preferencescreen"
+        android:title="Database data"
+        >
+
+        <Preference
+            android:key="erase_database"
+            android:title="Empty database" />
+        <Preference
+            android:key="clean"
+            android:title="Add default data" />
+
+    </PreferenceScreen>
+            -->
+
     <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
         android:title="@string/pref_information_about_us"
         android:dialogTitle="@string/pref_information_about_us"

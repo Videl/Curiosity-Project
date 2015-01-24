@@ -1,16 +1,19 @@
 package org.fslhome.videl.curiosityapplication;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.fslhome.videl.curiosityapplication.model.CuriosityDBAdapter;
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
@@ -31,13 +34,15 @@ public class CuriositiesActivity extends ActionBarActivity {
     private String currentCuriosity;
 
     // Mapsforge stuff
-
-    // name of the map file in the external storage
     private final String MAPFILE = "germany.map";
 
     private MapView mapView;
     private TileCache tileCache;
     private TileRendererLayer tileRendererLayer;
+
+    // DB stuff
+    private CuriosityDBAdapter dbAdapter;
+
 
     // ActionBarActivity methods stuff
 
@@ -46,14 +51,12 @@ public class CuriositiesActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
 
         AndroidGraphicFactory.createInstance(this.getApplication());
-        //this.mapView = new MapView(this);
 
         setContentView(R.layout.activity_curiosities);
         this.mapView = (MapView) findViewById(R.id.mapView);
+        this.dbAdapter = new CuriosityDBAdapter(this);
+        this.dbAdapter.open_read();
 
-
-        //this.mapView = new MapView(this);
-        //setContentView(this.mapView);
 
         // Get the data sent from the homepage
         Intent myIntent = getIntent();
@@ -115,24 +118,51 @@ public class CuriositiesActivity extends ActionBarActivity {
         tileRendererLayer.setMapFile(getMapFile());
         tileRendererLayer.setXmlRenderTheme(InternalRenderTheme.OSMARENDER);
 
+        // only once a layer is associated with a mapView the rendering starts
+        // this the base layer, with the map.
+        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
+
+        // generation of all the dots from the database.
 
         //Drawable drawable = getResources().getDrawable(R.drawable.marker_green);
         //Bitmap bitmap = AndroidGraphicFactory.convertToBitmap(drawable);
         Bitmap bitmap;
+        Marker temp;
+        Cursor cursor = this.dbAdapter.fetchAllDataAboutOneCuriosity(currentCuriosity);
 
-        // only once a layer is associated with a mapView the rendering starts
-        this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
+        String dataString[][] = new String[cursor.getCount()][2];
+        Double dataGPS[][] = new Double[cursor.getCount()][2];
+        int i = 0;
 
-        TextView bubbleView = new TextView(this);
-        Utils.setBackground(bubbleView, getResources().getDrawable(R.drawable.marker_red));
-        bubbleView.setGravity(Gravity.CENTER);
-        bubbleView.setMaxEms(20);
-        bubbleView.setTextSize(15);
-        bubbleView.setTextColor(Color.BLACK);
-        bubbleView.setText("15");
-        bubbleView.setPadding(0,0,0,70);
-        bitmap = Utils.viewToBitmap(this, bubbleView);
-        this.mapView.getLayerManager().getLayers().add(new Marker(new LatLong(52.5170365, 13.3888599), bitmap, 0, 0));
+        cursor.moveToFirst();
+        while (cursor.isAfterLast() == false) {
+            dataString[i][0] = cursor.getString(0);
+            dataString[i][1] = cursor.getString(1);
+            dataGPS[i][0] = cursor.getDouble(2);
+            dataGPS[i][1] = cursor.getDouble(3);
+            Log.i("Videl", "Data 0: " + dataString[i][0]);
+            Log.i("Videl", "Data 1: " + dataString[i][1]);
+            Log.i("Videl", "Data 2: " + dataGPS[i][0]);
+            Log.i("Videl", "Data 3: " + dataGPS[i][1]);
+            i++;
+            cursor.moveToNext();
+        }
+
+        Log.i("Videl", "Number of rows for this Curiosity: " + cursor.getCount());
+
+        for(int j = 0; j < i; j++) {
+            TextView bubbleView = new TextView(this);
+            Utils.setBackground(bubbleView, getResources().getDrawable(R.drawable.marker_red));
+            bubbleView.setText("" + (j+1));
+            bubbleView.setGravity(Gravity.CENTER);
+            bubbleView.setMaxEms(20);
+            bubbleView.setTextSize(15);
+            bubbleView.setTextColor(Color.BLACK);
+            bubbleView.setPadding(0,0,0,70);
+            bitmap = Utils.viewToBitmap(this, bubbleView);
+            temp = new Marker(new LatLong(dataGPS[j][0], dataGPS[j][1]), bitmap, 0, 0);
+            this.mapView.getLayerManager().getLayers().add(temp);
+        }
 
     }
 
