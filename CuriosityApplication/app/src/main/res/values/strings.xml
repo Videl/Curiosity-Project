@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Curiosity Application</string>
+    <string name="app_name" translatable="false">Curiosity Application</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_curiosities">CuriositiesActivity</string>
@@ -9,5 +9,8 @@
     <string name="title_activity_blank">BlankActivity</string>
     <string name="title_activity_splash">Splash Activity for launch</string>
     <string name="temp">Temporary field</string>
+    <string name="pref_information_license_mapsforge" translatable="false">Mapsforge</string>
+    <string name="pref_information_license_curiosity_content">Curiosity\'s content</string>
+    <string name="pref_information_license_curiosity">Curiosity\'s source code</string>
 
 </resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Curiosity</string>
+    <string name="hello_world">Bonjour!</string>
+    <string name="action_settings">Préférences</string>
+    <string name="title_activity_curiosities">CuriositiesActivity</string>
+    <string name="home">Accueil</string>
+    <string name="title_activity_blank">BlankActivity</string>
+    <string name="title_activity_splash">Page d\'accueil lors du démarrage</string>
+    <string name="temp">Champ temporaire</string>
+    <string name="pref_general_boot_sound">Enlever le son de démarrage</string>
+    <string name="pref_general_boot_sound_summary">Enlever le son du T.A.R.D.I.S. qui se lance quand l\'application démarre.</string>
+    <string name="pref_general_language">Changer la langue de l\'application</string>
+    <string name="pref_general_language_summary">Changer la langue de l\'application.</string>
+    <string name="pref_general_splash">Enlever l\'image de démarrage</string>
+    <string name="pref_general_splash_summary">L\'image de démarrage se lance automatiquement après le démarrage de l\'application.</string>
+    <string name="pref_header_general">Général</string>
+    <string name="pref_header_information">Information</string>
+    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_information_about_us">À propos</string>
+    <string name="pref_information_about_us_text">Nous sommes:\n\t Mateus Saunier\n\tThibaut Smith</string>
+    <string name="pref_information_licences">Licences libres utilisées</string>
+    <string name="pref_notifications_near_curiosity">Avertissement quand on est proche d\'une Curiositée</string>
+    <string name="pref_notifications_vibrate">Vibrer</string>
+    <string name="pref_ringtone_silent">Silencieux</string>
+    <string name="pref_title_ringtone">Sonnerie</string>
+    <string name="pref_title_sync_frequency">Fréquence de synchronisation</string>
+    <string name="pref_title_system_sync_settings">Préférences de la synchronisation système</string>
+    <string name="pref_title_vibrate">Vibrer</string>
+    <string name="title_activity_settings">Préférences</string>
+    <string name="pref_information_license_curiosity">Source du programme Curiosity</string>
+    <string name="pref_information_license_curiosity_content">Contenu de Curiosity</string>
+</resources>

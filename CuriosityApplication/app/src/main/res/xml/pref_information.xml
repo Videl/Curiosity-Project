@@ -22,9 +22,30 @@
         android:dialogMessage="@string/pref_information_about_us_text"
         />
 
-    <Preference android:title="@string/pref_information_licences">
+    <PreferenceScreen
+        android:key="deep_pref_screen_licenses"
+        android:title="@string/pref_information_licences"
+        >
 
-    </Preference>
+        <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
+            android:title="@string/pref_information_license_mapsforge"
+            android:dialogTitle="@string/pref_information_license_mapsforge"
+            android:dialogMessage="@string/pref_information_license_gnu_v3"
+            />
+
+        <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
+            android:title="@string/pref_information_license_curiosity_content"
+            android:dialogTitle="@string/pref_information_license_curiosity_content"
+            android:dialogMessage="@string/pref_information_license_mit"
+            />
+
+        <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
+            android:title="@string/pref_information_license_curiosity"
+            android:dialogTitle="@string/pref_information_license_curiosity"
+            android:dialogMessage="@string/pref_information_license_gnu_v3"
+            />
+
+    </PreferenceScreen>
 
 
     <!-- This preference simply launches an intent when selected. Use this UI sparingly, per
