@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -75,12 +76,13 @@ public class MainActivity extends ActionBarActivity {
             CuriosityDBAdapter dbAdapter = new CuriosityDBAdapter(this);
             dbAdapter.open_write().addNewCuriosityData("Maynooth", "The Roost", "Every Thursday night, this place is rocking it!", 53.38080, -6.59194);
             dbAdapter.open_write().addNewCuriosityData("Maynooth", "Home", "Developper's home ;)", 53.37441, -6.58603);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Swimming pool", "A really nice swimming pool. Open every day for staff and student.", 53.378863, -6.596516);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Braddys", "Every Tuesday evening from 10 to midnight, free Jazz music!", 53.378891, -6.596500);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Museum", "For an hour to spare, you can visit the Museum of Antique studying tools in Maynooth University.", 53.381344, -6.590500);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Swimming pool", "A really nice swimming pool. Open every day for staff and student.", 53.378845, -6.596513);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Braddys", "Every Tuesday evening from 10 to midnight, free Jazz music!", 53.381371, -6.590436);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Museum", "For an hour to spare, you can visit the Museum of Antique studying tools in Maynooth University.", 53.378613, -6.598182);
             dbAdapter.open_write().addNewCuriosityData("Dublin", "Queen of Tarts", "Delicious pies and whatnot are sold here.", 53.344294, -6.268979);
             dbAdapter.open_write().addNewCuriosityData("Dublin", "Oscar Wilde Memorial Statue", "This statue in the Merrion Square will bring you back in time. Enjoy the Square too ;).", 53.340646, -6.250571);
-            dbAdapter.open_write().addNewCuriosityData("Dublin", "Pheonix Park", "This park is really big. And you will find roaming deers too! Don't scare them though!", 53.356431, -6.331944);
+            dbAdapter.open_write().addNewCuriosityData("Dublin", "Phoenix Park", "This park is really big. And you will find roaming deers too! Don't scare them though!", 53.356431, -6.331944);
+            dbAdapter.open_write().addNewCuriosityData("Dublin", "Trinity College", "The famous University of Dublin, Trinity College. The Book of Kells can be seen here too.", 53.344477, -6.259334);
             dbAdapter.close();
 
             Toast.makeText(this, "Added default data.", Toast.LENGTH_SHORT).show();
