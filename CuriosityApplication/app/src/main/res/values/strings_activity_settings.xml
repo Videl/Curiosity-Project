@@ -18,14 +18,12 @@
     <string-array name="pref_general_language_dialog_list_titles">
         <item>English</item>
         <item>French</item>
-        <item>Portuguese</item>
         <item>Russian</item>
     </string-array>
     <string-array name="pref_general_language_dialog_list_values">
-        <item>-1</item>
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
+        <item>en</item>
+        <item>fr</item>
+        <item>ru</item>
     </string-array>
 
     <!-- Settings for Notifications -->

@@ -64,7 +64,7 @@
                 android:layout_height="@dimen/card_home_height"
                 android:layout_marginBottom="10dp"
                 android:drawableBottom="@drawable/sub_image"
-                android:text="Glendalough" />
+                android:text="Versailles" />
 
             <Button
                 android:id="@+id/button_right_two"
@@ -75,54 +75,6 @@
                 android:text="Montpellier" />
 
         </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/button_right3"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/sub_image"
-                android:text="Paris" />
-
-            <Button
-                android:id="@+id/button_right_two4"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/sub_image"
-                android:text="Maues" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/button_right5"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/sub_image"
-                android:text="Sao Paulo" />
-
-            <Button
-                android:id="@+id/button_right_two6"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/sub_image"
-                android:text="Vinhedo" />
-
-        </LinearLayout>
-
-
 
     </LinearLayout>
 </RelativeLayout>

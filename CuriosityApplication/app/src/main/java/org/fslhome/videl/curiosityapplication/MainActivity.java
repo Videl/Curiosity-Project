@@ -74,15 +74,25 @@ public class MainActivity extends ActionBarActivity {
             return true;
         } else if (id == R.id.action_clean_db) {
             CuriosityDBAdapter dbAdapter = new CuriosityDBAdapter(this);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "The Roost", "Every Thursday night, this place is rocking it!", 53.38080, -6.59194);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Home", "Developper's home ;)", 53.37441, -6.58603);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Swimming pool", "A really nice swimming pool. Open every day for staff and student.", 53.378845, -6.596513);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Braddys", "Every Tuesday evening from 10 to midnight, free Jazz music!", 53.381371, -6.590436);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Museum", "For an hour to spare, you can visit the Museum of Antique studying tools in Maynooth University.", 53.378613, -6.598182);
-            dbAdapter.open_write().addNewCuriosityData("Dublin", "Queen of Tarts", "Delicious pies and whatnot are sold here.", 53.344294, -6.268979);
-            dbAdapter.open_write().addNewCuriosityData("Dublin", "Oscar Wilde Memorial Statue", "This statue in the Merrion Square will bring you back in time. Enjoy the Square too ;).", 53.340646, -6.250571);
-            dbAdapter.open_write().addNewCuriosityData("Dublin", "Phoenix Park", "This park is really big. And you will find roaming deers too! Don't scare them though!", 53.356431, -6.331944);
-            dbAdapter.open_write().addNewCuriosityData("Dublin", "Trinity College", "The famous University of Dublin, Trinity College. The Book of Kells can be seen here too.", 53.344477, -6.259334);
+            dbAdapter.open_write();
+            dbAdapter.addNewCuriosityData("Maynooth", "The Roost", "Every Thursday night, this place is rocking it!", 53.38080, -6.59194);
+            dbAdapter.addNewCuriosityData("Maynooth", "Home", "Developper's home ;)", 53.37441, -6.58603);
+            dbAdapter.addNewCuriosityData("Maynooth", "Swimming pool", "A really nice swimming pool. Open every day for staff and student.", 53.378845, -6.596513);
+            dbAdapter.addNewCuriosityData("Maynooth", "Braddys", "Every Tuesday evening from 10 to midnight, free Jazz music!", 53.381371, -6.590436);
+            dbAdapter.addNewCuriosityData("Maynooth", "Museum", "For an hour to spare, you can visit the Museum of Antique studying tools in Maynooth University.", 53.378613, -6.598182);
+            dbAdapter.addNewCuriosityData("Dublin", "Queen of Tarts", "Delicious pies and whatnot are sold here.", 53.344294, -6.268979);
+            dbAdapter.addNewCuriosityData("Dublin", "Oscar Wilde Memorial Statue", "This statue in the Merrion Square will bring you back in time. Enjoy the Square too ;).", 53.340646, -6.250571);
+            dbAdapter.addNewCuriosityData("Dublin", "Phoenix Park", "This park is really big. And you will find roaming deers too! Don't scare them though!", 53.356431, -6.331944);
+            dbAdapter.addNewCuriosityData("Dublin", "Trinity College", "The famous University of Dublin, Trinity College. The Book of Kells can be seen here too.", 53.344477, -6.259334);
+            dbAdapter.addNewCuriosityData("Montpellier", "Antigone", "This is the center of the town. Every building has a Roman architecture.", 43.608196, 3.887617);
+            dbAdapter.addNewCuriosityData("Montpellier", "Palavas", "The beach closest to Montpellier. Lots of food are sold by traveling merchant on the beach!", 43.548730, 3.995685);
+            dbAdapter.addNewCuriosityData("Montpellier", "Train Station", "The central point that connects the city to every other city in France. Lots of transportation have their stops too.", 43.603357, 3.880650);
+            dbAdapter.addNewCuriosityData("Montpellier", "Arc de Triomphe", "The local Arc de Triomphe. It is said it is a relic of the past, from when the Romans were here.", 43.611106, 3.872646);
+            dbAdapter.addNewCuriosityData("Montpellier", "Home", "Developper's home ;).", 43.622445, 3.850667);
+            dbAdapter.addNewCuriosityData("Versailles", "Palace of Versailles", "Here is the picturesque Palace of Versailles.", 48.804320, 2.122018);
+            dbAdapter.addNewCuriosityData("Versailles", "Train Station", "One of the three train stations connecting Versailles to Paris.", 48.800204, 2.129099);
+            dbAdapter.addNewCuriosityData("Versailles", "Bassin de Neptune", "Trully an antique bringing us back to the times of the Kings.", 48.808733, 2.122492);
+            dbAdapter.addNewCuriosityData("Versailles", "Great Stables of the Palace of Versaille", "You can find many horse shows there. For all Horse-lovers!", 48.803672, 2.128999);
             dbAdapter.close();
 
             Toast.makeText(this, "Added default data.", Toast.LENGTH_SHORT).show();

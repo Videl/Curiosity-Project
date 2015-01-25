@@ -80,7 +80,7 @@ public class CuriositiesActivity extends ActionBarActivity {
         this.mapView.setClickable(true);
         this.mapView.getMapScaleBar().setVisible(true);
         this.mapView.setBuiltInZoomControls(true);
-        this.mapView.getMapZoomControls().setZoomLevelMin((byte) 10);
+        this.mapView.getMapZoomControls().setZoomLevelMin((byte) 12);
         this.mapView.getMapZoomControls().setZoomLevelMax((byte) 20);
 
         // create a tile cache of suitable size
@@ -118,7 +118,7 @@ public class CuriositiesActivity extends ActionBarActivity {
     protected void onStart() {
         super.onStart();
 
-        this.mapView.getModel().mapViewPosition.setZoomLevel((byte) 12);
+        this.mapView.getModel().mapViewPosition.setZoomLevel((byte) 14);
 
         // tile renderer layer using internal render theme
         this.tileRendererLayer = new TileRendererLayer(tileCache,
@@ -220,6 +220,12 @@ public class CuriositiesActivity extends ActionBarActivity {
                     break;
                 case "dublin.map":
                     inputStream = getResources().openRawResource(R.raw.dublin);
+                    break;
+                case "montpellier.map":
+                    inputStream = getResources().openRawResource(R.raw.montpellier);
+                    break;
+                case "versailles.map":
+                    inputStream = getResources().openRawResource(R.raw.versailles);
                     break;
             }
 

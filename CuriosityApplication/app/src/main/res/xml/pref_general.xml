@@ -4,7 +4,7 @@
     <ListPreference
         android:key="general_language_dialog"
         android:title="@string/pref_general_language"
-        android:defaultValue="-1"
+        android:defaultValue="en"
         android:entries="@array/pref_general_language_dialog_list_titles"
         android:entryValues="@array/pref_general_language_dialog_list_values"
         android:negativeButtonText="@null"
