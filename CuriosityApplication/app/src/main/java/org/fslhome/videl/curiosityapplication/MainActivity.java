@@ -73,8 +73,8 @@ public class MainActivity extends ActionBarActivity {
             return true;
         } else if (id == R.id.action_clean_db) {
             CuriosityDBAdapter dbAdapter = new CuriosityDBAdapter(this);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "The Roost", "Un super bar", 52.5170365, 13.3888599);
-            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Gare", "Ahah", 52.5213, 13.4109);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "The Roost", "Nice bar", 53.38080, -6.59194);
+            dbAdapter.open_write().addNewCuriosityData("Maynooth", "Home", "My home", 53.37441, -6.58603);
             dbAdapter.close();
 
             Toast.makeText(this, "Added default data.", Toast.LENGTH_SHORT).show();

@@ -1,5 +1,6 @@
 package org.fslhome.videl.curiosityapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -11,7 +12,9 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.fslhome.videl.curiosityapplication.model.CuriosityDBAdapter;
 import org.mapsforge.core.graphics.Bitmap;
@@ -27,6 +30,9 @@ import org.mapsforge.map.layer.renderer.TileRendererLayer;
 import org.mapsforge.map.rendertheme.InternalRenderTheme;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 
 
 public class CuriositiesActivity extends ActionBarActivity {
@@ -34,7 +40,7 @@ public class CuriositiesActivity extends ActionBarActivity {
     private String currentCuriosity;
 
     // Mapsforge stuff
-    private final String MAPFILE = "germany.map";
+    private String MAPFILE;
 
     private MapView mapView;
     private TileCache tileCache;
@@ -55,12 +61,14 @@ public class CuriositiesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_curiosities);
         this.mapView = (MapView) findViewById(R.id.mapView);
         this.dbAdapter = new CuriosityDBAdapter(this);
+
         this.dbAdapter.open_read();
 
 
         // Get the data sent from the homepage
         Intent myIntent = getIntent();
         currentCuriosity = myIntent.getStringExtra("org.fslhome.curiosity.curiosities.button_clicked");
+        this.MAPFILE = currentCuriosity.toLowerCase() + ".map";
 
         setTitle(currentCuriosity);
 
@@ -107,9 +115,6 @@ public class CuriositiesActivity extends ActionBarActivity {
     protected void onStart() {
         super.onStart();
 
-        //this.mapView.getModel().mapViewPosition.setCenter(new LatLong(52.517037, 13.38886));
-        this.mapView.getModel().mapViewPosition.setCenter(new LatLong( 52.5170365, 13.3888599));
-
         this.mapView.getModel().mapViewPosition.setZoomLevel((byte) 12);
 
         // tile renderer layer using internal render theme
@@ -119,18 +124,16 @@ public class CuriositiesActivity extends ActionBarActivity {
         tileRendererLayer.setXmlRenderTheme(InternalRenderTheme.OSMARENDER);
 
         // only once a layer is associated with a mapView the rendering starts
-        // this the base layer, with the map.
+        // this is the base layer, with the map.
         this.mapView.getLayerManager().getLayers().add(tileRendererLayer);
 
         // generation of all the dots from the database.
 
-        //Drawable drawable = getResources().getDrawable(R.drawable.marker_green);
-        //Bitmap bitmap = AndroidGraphicFactory.convertToBitmap(drawable);
         Bitmap bitmap;
         Marker temp;
         Cursor cursor = this.dbAdapter.fetchAllDataAboutOneCuriosity(currentCuriosity);
 
-        String dataString[][] = new String[cursor.getCount()][2];
+        final String dataString[][] = new String[cursor.getCount()][2];
         Double dataGPS[][] = new Double[cursor.getCount()][2];
         int i = 0;
 
@@ -151,16 +154,21 @@ public class CuriositiesActivity extends ActionBarActivity {
         Log.i("Videl", "Number of rows for this Curiosity: " + cursor.getCount());
 
         for(int j = 0; j < i; j++) {
+            LatLong coordinates = new LatLong(dataGPS[j][0], dataGPS[j][1]);
+            if(j == 0)
+            {
+                this.mapView.getModel().mapViewPosition.setCenter(coordinates);
+            }
             TextView bubbleView = new TextView(this);
             Utils.setBackground(bubbleView, getResources().getDrawable(R.drawable.marker_red));
-            bubbleView.setText("" + (j+1));
+            bubbleView.setText("" + (j + 1));
             bubbleView.setGravity(Gravity.CENTER);
             bubbleView.setMaxEms(20);
             bubbleView.setTextSize(15);
             bubbleView.setTextColor(Color.BLACK);
-            bubbleView.setPadding(0,0,0,70);
+            bubbleView.setPadding(0, 0, 0, 70);
             bitmap = Utils.viewToBitmap(this, bubbleView);
-            temp = new Marker(new LatLong(dataGPS[j][0], dataGPS[j][1]), bitmap, 0, 0);
+            temp = new Marker(coordinates, bitmap, 0, 0);
             this.mapView.getLayerManager().getLayers().add(temp);
         }
 
@@ -193,7 +201,24 @@ public class CuriositiesActivity extends ActionBarActivity {
     }
 
     private File getMapFile() {
-        File file = new File(Environment.getExternalStorageDirectory(), MAPFILE);
+        /*
+       FileInputStream enva = null;
+        try {
+            enva = openFileInput("dublin.map");
+            Log.i("Videl_fi", "GOT IT");
+
+        } catch (FileNotFoundException e) {
+            Log.i("Videl_fi", "Désolé...");
+            e.printStackTrace();
+        }
+        File env = this.getFilesDir();
+        Log.i("Videl_fi", "Je vais vous montrer où sont tous les fichiers (" + env.list().length + ")");
+        for(String fi: env.list())
+        {
+            Log.i("Videl_fi", fi);
+        }*/
+
+        File file = new File(Environment.getExternalStorageDirectory(), this.MAPFILE);
         return file;
     }
 
