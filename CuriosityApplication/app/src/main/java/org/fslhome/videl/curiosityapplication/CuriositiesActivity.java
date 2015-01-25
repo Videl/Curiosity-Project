@@ -33,6 +33,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 
 public class CuriositiesActivity extends ActionBarActivity {
@@ -143,15 +146,19 @@ public class CuriositiesActivity extends ActionBarActivity {
             dataString[i][1] = cursor.getString(1);
             dataGPS[i][0] = cursor.getDouble(2);
             dataGPS[i][1] = cursor.getDouble(3);
+            /*
             Log.i("Videl", "Data 0: " + dataString[i][0]);
             Log.i("Videl", "Data 1: " + dataString[i][1]);
             Log.i("Videl", "Data 2: " + dataGPS[i][0]);
             Log.i("Videl", "Data 3: " + dataGPS[i][1]);
+            */
             i++;
             cursor.moveToNext();
         }
 
+        /*
         Log.i("Videl", "Number of rows for this Curiosity: " + cursor.getCount());
+        */
 
         for(int j = 0; j < i; j++) {
             LatLong coordinates = new LatLong(dataGPS[j][0], dataGPS[j][1]);
@@ -201,22 +208,55 @@ public class CuriositiesActivity extends ActionBarActivity {
     }
 
     private File getMapFile() {
-        /*
-       FileInputStream enva = null;
-        try {
-            enva = openFileInput("dublin.map");
-            Log.i("Videl_fi", "GOT IT");
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
 
-        } catch (FileNotFoundException e) {
-            Log.i("Videl_fi", "Désolé...");
+        try {
+            // read this file into InputStream
+            switch(this.MAPFILE)
+            {
+                case "maynooth.map":
+                    inputStream = getResources().openRawResource(R.raw.maynooth);
+                    break;
+                case "dublin.map":
+                    inputStream = getResources().openRawResource(R.raw.dublin);
+                    break;
+            }
+
+            // write the inputStream to a FileOutputStream
+            outputStream =
+                    new FileOutputStream(new File(Environment.getExternalStorageDirectory(), this.MAPFILE));
+
+            int read = 0;
+            byte[] bytes = new byte[1024];
+
+            while ((read = inputStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+
+            Log.i("Videl_fi", "File creation completed.");
+
+        } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (outputStream != null) {
+                try {
+                    // outputStream.flush();
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
-        File env = this.getFilesDir();
-        Log.i("Videl_fi", "Je vais vous montrer où sont tous les fichiers (" + env.list().length + ")");
-        for(String fi: env.list())
-        {
-            Log.i("Videl_fi", fi);
-        }*/
+
 
         File file = new File(Environment.getExternalStorageDirectory(), this.MAPFILE);
         return file;
