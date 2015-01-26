@@ -1,80 +1,86 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/world" />
 
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/app_name"
-        android:src="@drawable/world" />
-
-
-    <!-- http://stackoverflow.com/questions/12492064/android-add-image-to-button -->
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
-        android:orientation="vertical"
-        android:id="@+id/homepage_wall" >
+        <!-- http://stackoverflow.com/questions/12492064/android-add-image-to-button -->
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="38dp"
+            android:orientation="vertical"
+            android:id="@+id/homepage_wall" >
 
-            <Button
-                android:id="@+id/button_left"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/dublins"
-                android:text="Dublin" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-            <Button
-                android:id="@+id/button_middle"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/maynooths"
-                android:text="Maynooth" />
+                <Button
+                    android:id="@+id/button_left"
+                    android:layout_width="@dimen/card_home_width"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="10dp"
+                    android:drawableBottom="@drawable/dublins"
+                    android:text="Dublin" />
+
+                <Button
+                    android:id="@+id/button_middle"
+                    android:layout_width="@dimen/card_home_width"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="10dp"
+                    android:drawableBottom="@drawable/maynooths"
+                    android:text="Maynooth" />
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/button_right"
+                    android:layout_width="@dimen/card_home_width"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="10dp"
+                    android:drawableBottom="@drawable/versailless"
+                    android:text="Versailles" />
+
+                <Button
+                    android:id="@+id/button_right_two"
+                    android:layout_width="@dimen/card_home_width"
+                    android:layout_height="@dimen/card_home_height"
+                    android:layout_marginBottom="10dp"
+                    android:drawableBottom="@drawable/montpelliers"
+                    android:text="Montpellier" />
+
+            </LinearLayout>
 
         </LinearLayout>
+    </RelativeLayout>
 
 
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/button_right"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/versailless"
-                android:text="Versailles" />
-
-            <Button
-                android:id="@+id/button_right_two"
-                android:layout_width="@dimen/card_home_width"
-                android:layout_height="@dimen/card_home_height"
-                android:layout_marginBottom="10dp"
-                android:drawableBottom="@drawable/montpelliers"
-                android:text="Montpellier" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-</RelativeLayout>
+</ScrollView>
