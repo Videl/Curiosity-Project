@@ -24,13 +24,19 @@
 
     <PreferenceScreen
         android:key="deep_pref_screen_licenses"
-        android:title="@string/pref_information_licences"
+        android:title="@string/pref_information_licenses"
         >
 
         <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
             android:title="@string/pref_information_license_mapsforge"
             android:dialogTitle="@string/pref_information_license_mapsforge"
             android:dialogMessage="@string/pref_information_license_gnu_v3"
+            />
+
+        <org.fslhome.videl.curiosityapplication.views.MyDialogPreference
+            android:title="@string/pref_information_license_openstreetmap"
+            android:dialogTitle="@string/pref_information_license_openstreetmap"
+            android:dialogMessage="@string/pref_information_license_open_data_commons_open_database"
             />
 
         <org.fslhome.videl.curiosityapplication.views.MyDialogPreference

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Любопытство</string>
+    <string name="action_settings">Настройки</string>
+    <string name="hello_world">Привет, мир!</string>
+    <string name="home">Главная</string>
+    <string name="pref_general_boot_sound">Удалить загрузки музыки</string>
+    <string name="pref_general_boot_sound_summary">Снимите T.A.R.D.I.S. Звук, который играет после запуска</string>
+    <string name="pref_general_language">Изменить язык интерфейса приложения</string>
+    <string name="pref_general_language_summary">Изменить язык интерфейса приложения.</string>
+    <string name="pref_information_about_us_text">мы:\n\tBrena Cardoso\n\tАнна Козловская\n\tMateus Saunier\n\tThibaut Smith</string>
+    <string name="pref_general_splash">Удалить загрузочный образ</string>
+    <string name="pref_header_general">Общие положения</string>
+    <string name="pref_header_information">информация</string>
+    <string name="pref_header_notifications">Уведомления</string>
+    <string name="pref_information_about_us">о нас</string>
+    <string name="pref_general_splash_summary">Всплеск изображение изображение, которое появляется сразу после запуска.</string>
+    <string name="pref_information_licenses">Лицензии с открытым исходным кодом используется </string>
+    <string name="pref_notifications_near_curiosity">Уведомления когда рядом курьезов </string>
+    <string name="pref_notifications_vibrate">вибрировать</string>
+    <string name="pref_ringtone_silent">тихий</string>
+    <string name="pref_title_ringtone">Мелодия</string>
+    <string name="pref_title_sync_frequency">частота синхронизации </string>
+    <string name="pref_title_system_sync_settings">Настройки системы синхронизации </string>
+    <string name="pref_title_vibrate">вибрировать </string>
+    <string name="temp">Временное поле </string>
+    <string name="title_activity_blank">BlankActivity</string>
+    <string name="title_activity_curiosities">CuriositiesActivity </string>
+    <string name="title_activity_settings">настройки</string>
+    <string name="title_activity_splash">Всплеск активности для запуска</string>
+</resources>
