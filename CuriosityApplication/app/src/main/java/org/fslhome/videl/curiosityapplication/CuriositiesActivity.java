@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.fslhome.videl.curiosityapplication.model.CuriosityDBAdapter;
+import org.fslhome.videl.curiosityapplication.model.ThreeLineListAdapter;
 import org.mapsforge.core.graphics.Bitmap;
 import org.mapsforge.core.model.LatLong;
 import org.mapsforge.map.android.graphics.AndroidGraphicFactory;
@@ -168,7 +169,6 @@ public class CuriositiesActivity extends ActionBarActivity {
         Log.i("Videl", "Number of rows for this Curiosity: " + cursor.getCount());
         */
 
-        String[] textForListView = new String[i];
         for(int j = 0; j < i; j++) {
             LatLong coordinates = new LatLong(dataGPS[j][0], dataGPS[j][1]);
             if(j == 0)
@@ -190,10 +190,12 @@ public class CuriositiesActivity extends ActionBarActivity {
             temp = new Marker(coordinates, bitmap, 0, 0);
             this.mapView.getLayerManager().getLayers().add(temp);
             // Creating the String that will be displayed
-            textForListView[j] = (j+1) + ": [" + dataString[j][0] + "] " + dataString[j][1];
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1);
-        arrayAdapter.addAll(textForListView);
+
+        //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1);
+        ThreeLineListAdapter arrayAdapter = new ThreeLineListAdapter(this, android.R.layout.simple_expandable_list_item_2);
+
+        arrayAdapter.addAll(dataString);
         this.listView.setAdapter(arrayAdapter);
 
     }
