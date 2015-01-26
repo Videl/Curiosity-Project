@@ -13,6 +13,8 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +38,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 
 public class CuriositiesActivity extends ActionBarActivity {
@@ -52,8 +55,8 @@ public class CuriositiesActivity extends ActionBarActivity {
     // DB stuff
     private CuriosityDBAdapter dbAdapter;
 
-
-    // ActionBarActivity methods stuff
+    // ListView data
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +67,6 @@ public class CuriositiesActivity extends ActionBarActivity {
         setContentView(R.layout.activity_curiosities);
         this.mapView = (MapView) findViewById(R.id.mapView);
         this.dbAdapter = new CuriosityDBAdapter(this);
-
-        this.dbAdapter.open_read();
 
 
         // Get the data sent from the homepage
@@ -87,6 +88,10 @@ public class CuriositiesActivity extends ActionBarActivity {
         this.tileCache = AndroidUtil.createTileCache(this, "mapcache",
                 mapView.getModel().displayModel.getTileSize(), 1f,
                 this.mapView.getModel().frameBufferModel.getOverdrawFactor());
+
+        // ListView info
+
+        this.listView = (ListView) findViewById(R.id.listView);
     }
 
 
@@ -134,6 +139,8 @@ public class CuriositiesActivity extends ActionBarActivity {
 
         Bitmap bitmap;
         Marker temp;
+
+        this.dbAdapter.open_read();
         Cursor cursor = this.dbAdapter.fetchAllDataAboutOneCuriosity(currentCuriosity);
 
         final String dataString[][] = new String[cursor.getCount()][2];
@@ -155,11 +162,13 @@ public class CuriositiesActivity extends ActionBarActivity {
             i++;
             cursor.moveToNext();
         }
+        this.dbAdapter.close();
 
         /*
         Log.i("Videl", "Number of rows for this Curiosity: " + cursor.getCount());
         */
 
+        String[] textForListView = new String[i];
         for(int j = 0; j < i; j++) {
             LatLong coordinates = new LatLong(dataGPS[j][0], dataGPS[j][1]);
             if(j == 0)
@@ -168,16 +177,24 @@ public class CuriositiesActivity extends ActionBarActivity {
             }
             TextView bubbleView = new TextView(this);
             Utils.setBackground(bubbleView, getResources().getDrawable(R.drawable.marker_red));
-            bubbleView.setText("" + (j + 1));
+            // The following numbers are only for aesthetic of the Markers
+            bubbleView.setText("" + (j + 1)); // This number will be the same as displayed in the
+                                              // ListView, below the map
             bubbleView.setGravity(Gravity.CENTER);
             bubbleView.setMaxEms(20);
             bubbleView.setTextSize(15);
             bubbleView.setTextColor(Color.BLACK);
             bubbleView.setPadding(0, 0, 0, 70);
+            // Creation of the image with the number inside
             bitmap = Utils.viewToBitmap(this, bubbleView);
             temp = new Marker(coordinates, bitmap, 0, 0);
             this.mapView.getLayerManager().getLayers().add(temp);
+            // Creating the String that will be displayed
+            textForListView[j] = (j+1) + ": [" + dataString[j][0] + "] " + dataString[j][1];
         }
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1);
+        arrayAdapter.addAll(textForListView);
+        this.listView.setAdapter(arrayAdapter);
 
     }
 
