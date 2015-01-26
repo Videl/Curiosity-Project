@@ -62,7 +62,7 @@ public class ThreeLineListAdapter extends ArrayAdapter<String[]>{
             holder = (ViewHolder)itemView.getTag();
         }
 
-        holder.text1.setText("[" + position + "]" + item[0]);
+        holder.text1.setText("[" + (position+1) + "] " + item[0]);
         holder.text2.setText(item[1]);
 
         return itemView;
