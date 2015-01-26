@@ -65,6 +65,6 @@
     <string name="pref_information_about_us">About us</string>
     <string name="pref_information_licences">Opensource licences</string>
 
-    <string name="pref_information_about_us_text">We are:\n\tMateus Saunier\n\tMateus Saunier\'s friend\n\tThibaut Smith
+    <string name="pref_information_about_us_text">We are:\n\tBrena Cardoso\n\tMateus Saunier\n\tThibaut Smith
     </string>
 </resources>
