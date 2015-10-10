@@ -11,7 +11,6 @@ The application makes use of a offline OpenSteetMap map.
  - [X] Use a little sound at the beginning (assignment directive)
  - [ ] User defined styles and themes 
  - [X] A Splash screen (assignment directive)
- - 
  
 License
 ========
